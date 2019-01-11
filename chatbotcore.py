@@ -93,6 +93,30 @@ pairs = [
         [lambda matches: 'At ASW students do not wear a school uniform but are required to dress appropriately for school. Middle and High School students have a Physical Education uniform.'],
     ],
     [
+        r'(.*)(placement test)(.*)',
+        [lambda matches: 'Students applying for Grades 6-12 whose mother tongue is not English or who have not been using English as their primary academic language, will be asked to complete an English language test. Tests in math and foreign language may also be administered to determine appropriate placement in these courses.'],
+    ],
+    [
+        r'(.*)(medical)(.*)',
+        [lambda matches: 'Each newly admitted student must have a medical check-up prior to enrolling. The Physical Examination form must be completed by a qualified, licensed health care provider. The check-up should be done no more than 12 months prior to the student’s start date. It must include proof of a Tuberculosis screening and a copy of the child’s vaccination record. A student is not authorised to start school unless the completed Physical Examination form has been submitted to ASW.'],
+    ],
+    [
+        r'(.*)(boarding)(.*)',
+        [lambda matches: 'ASW does not offer boarding. Students enrolled at ASW must reside with their parents or a legal guardian.'],
+    ],
+    [
+        r'(.*)(meals)(.*)',
+        [lambda matches: 'Fresh, healthy meals and snacks are offered in our cafeteria for a fee. Students may also bring their own lunch from home.'],
+    ],
+    [
+        r'(.*)(how)(.*)(long)(.*)(day)(.*)',
+        [lambda matches: 'School starts at 8:30 and ends at 15:30. For grades 11 and 12, the school day starts at 8.20 and finishes at 15.20. On Wednesdays, all students start school at 9:30 and end at 15:30. There are a variety of after-school activities at the end of the school day.'],
+    ],
+    [
+        r'(.*)(after school|extra|activities)(.*)',
+        [lambda matches: 'In order to see the list of after school activities visit the school website: https://www.aswarsaw.org/learning/athletics'],
+    ],
+    [
         r'(quit)',
         ["Goodbye."],
     ],
@@ -107,4 +131,3 @@ if __name__ == "__main__":
     print("What can I help you with?")
     chat = ContextChat(pairs, reflections)
     chat.converse()
-    
