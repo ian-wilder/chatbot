@@ -85,10 +85,6 @@ pairs = [
         [lambda matches: 'Annual application process: Applications for the 2019-2020 school year can be submitted starting from September 2018. Families applying for mid-year enrolment can also apply one year ahead.\nIf you are interested in enrolling your child in more than 12 months from now, please complete our online inquiry form and we will contact you when applications open: http://bit.ly/ASWinquire\nMost of the spaces are allocated by April but openings may become available in the months after that.'],
     ],
     [
-        r'(.*)(when)(.*)(apply)(.*)',
-        [lambda matches: 'Annual application process: Applications for the 2019-2020 school year can be submitted starting from September 2018. Families applying for mid-year enrolment can also apply one year ahead.\nIf you are interested in enrolling your child in more than 12 months from now, please complete our online inquiry form and we will contact you when applications open: http://bit.ly/ASWinquire\nMost of the spaces are allocated by April but openings may become available in the months after that.'],
-    ],
-    [
         r'(.*)(bus)(.*)',
         [lambda matches: 'A door-to-door bus service is available for a fee for students living in the wider Warsaw area. At the end of the school day buses depart right after school and again at the end of after-school activities.'],
     ],
@@ -99,6 +95,10 @@ pairs = [
     [
         r'(quit)',
         ["Goodbye."],
+    ],
+    [
+        r'(.*)',
+        ["I'm sorry. I'm not sure I can help with that."],
     ],
 ]
 
