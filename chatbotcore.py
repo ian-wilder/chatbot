@@ -64,6 +64,7 @@ def add_to_list(item):
         return True
 
 pairs = [
+    # answer to questions
     [
         r'(where)(.*)(school|asw)(.*)', 
         [lambda matches: 'We are located right on the edge of Warsaw, next to the small town of Konstancin-Jeziorna. Our street adress is Warszawska 202 05-520 Konstancin-Jeziorna, Poland. Here is a link to our school on maps. http://bit.ly/aswmap'],
@@ -110,19 +111,51 @@ pairs = [
     ],
     [
         r'(.*)(how)(.*)(long)(.*)(day)(.*)',
-        [lambda matches: 'School starts at 8:30 and ends at 15:30. For grades 11 and 12, the school day starts at 8.20 and finishes at 15.20. On Wednesdays, all students start school at 9:30 and end at 15:30. There are a variety of after-school activities at the end of the school day.'],
+        [lambda matches: 'School starts at 8:30 and ends at 15:30. For grades 11 and 12, the school day starts at 8:20 and finishes at 15:20. On Wednesdays, all students start school at 9:30 and end at 15:30. There are a variety of after-school activities at the end of the school day.'],
     ],
     [
         r'(.*)(after school|extra|activities)(.*)',
         [lambda matches: 'In order to see the list of after school activities visit the school website: https://www.aswarsaw.org/learning/athletics'],
     ],
     [
+        r'(.*)(accept)(.*)(special)(.*)(needs)(.*)',
+        [lambda matches: 'ASW welcomes students with a wide range of abilities and interests. Each division, Elementary, Middle and High School, has a Learning Support Program. The program is designed to provide assistance to struggling learners and students who have an identified mild to moderate learning disability or learning difference that requires educational support. ASW currently does not have the personnel capacity to support children with intense learning disabilities. Students with significant social-emotional difficulties who need a special learning environment may not be eligible for admission.'],
+    ],
+    [
+        r'(.*)(application)(.*)(fee)(.*)(refundable|refund)(.*)',
+        [lambda matches: 'In short, no. The application fee is a non-refundable administrative fee, charged to cover the costs of processing your child’s application, including testing and interviewing if required.'],
+    ],
+    [
+        r'(.*)(different)(year)(.*)(transition)(.*)',
+        [lambda matches: 'Each student’s record is considered carefully. Normally, students who have just completed a grade level (American system equivalent) in their home country will not be promoted to the next grade level mid-year at ASW as this would mean skipping months or even a full semester of that year’s work and leading to gaps in learning. Additionally, students who in future years return to an alternative calendar are often significantly impacted even more. Review of a student’s full record, relevant assessments, and other pertinent information may be used in making an alternative placement, if the body of evidence supports that decision after being reviewed by school administration.'],
+    ],
+
+    # conversation stuff
+    [
+        r'(.*)(hello|hi|greetings|sup|howdy)(.*)', 
+        [lambda matches: 'Hello, what can I help you with?'],
+    ],
+    [
+        r'(.*)(what)(.*)(your)(.*)(name)(.*)', 
+        [lambda matches: 'I\'m Admissions Bot. It\'s a pleasure to meet you.'],
+    ],
+    [
+        r'(.*)(what)(.*)(you)(.*)(do)(.*)', 
+        [lambda matches: 'I am a bot intended to answer your questions about admission. Go ahead, ask me something about admissions.'],
+    ],
+    [
+        r'(.*)(are)(you)(alive)(.*)', 
+        [lambda matches: 'It depends on what you count as alive.'],
+    ],
+
+    # quit and error, they must be last!!
+    [
         r'(quit)',
         ["Goodbye."],
     ],
     [
         r'(.*)',
-        ["I'm sorry. I'm not sure I can help with that."],
+        ["I'm sorry, I'm not sure I understand. Make sure you didn't misspell something."],
     ],
 ]
 
