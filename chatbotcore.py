@@ -144,8 +144,24 @@ pairs = [
         [lambda matches: 'I am a bot intended to answer your questions about admission. Go ahead, ask me something about admissions.'],
     ],
     [
-        r'(.*)(are)(you)(alive)(.*)', 
+        r'(.*)(are)(.*)(you)(.*)(alive)(.*)', 
         [lambda matches: 'It depends on what you count as alive.'],
+    ],
+    [
+        r'(.*)(are)(.*)(you)(.*)(bot)(.*)', 
+        [lambda matches: 'Indeed I am, and my purpose is to help you find out more about admissions.'],
+    ],
+    [
+        r'(.*)(find|learn|ask)(.*)(admissions|admission)(.*)', 
+        [lambda matches: "That's what I'm here for, feel free to ask me anything about admissions."],
+    ],
+    [
+        r'(.*)(how)(.*)(quit|exit|leave)(.*)', 
+        [lambda matches: 'In order to quit simply type: quit.'],
+    ],
+    [
+        r'(.*)(how)(.*)(contact)(.*)(admissions|people)(.*)', 
+        [lambda matches: 'In order to contact the good people at the admissions office please email admissions@aswarsaw.org or call +48 22 702 8500.'],
     ],
 
     # quit and error, they must be last!!
