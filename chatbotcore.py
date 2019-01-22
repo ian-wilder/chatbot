@@ -1,3 +1,4 @@
+
 from nltk.chat.util import Chat, reflections
 import re
 import random
@@ -148,7 +149,11 @@ pairs = [
         [lambda matches: 'It depends on what you count as alive.'],
     ],
     [
-        r'(.*)(are)(.*)(you)(.*)(bot)(.*)', 
+        r'(.*)(are)(.*)(you)(.*)(real)(.*)', 
+        [lambda matches: 'It depends on what you count as real.'],
+    ],
+    [
+        r'(.*)(are)(.*)(you)(.*)(bot|robot)(.*)', 
         [lambda matches: 'Indeed I am, and my purpose is to help you find out more about admissions.'],
     ],
     [
