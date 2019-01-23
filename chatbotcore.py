@@ -139,6 +139,22 @@ pairs = [
         r'(.*)(different)(year)(.*)(transition)(.*)',
         [lambda matches: 'Each student’s record is considered carefully. Normally, students who have just completed a grade level (American system equivalent) in their home country will not be promoted to the next grade level mid-year at ASW as this would mean skipping months or even a full semester of that year’s work and leading to gaps in learning. Additionally, students who in future years return to an alternative calendar are often significantly impacted even more. Review of a student’s full record, relevant assessments, and other pertinent information may be used in making an alternative placement, if the body of evidence supports that decision after being reviewed by school administration.'],
     ],
+        [
+        r'(.*)(withdrawel)(.*)',
+        [lambda matches: 'In order to withrdraw your child from the school send an e-mail to the admission’s office at admissions@aswarsaw.org notifying the name of the student(s) who is withdrawing, the last day of attendance, and the reason for withdrawal.']
+    ],
+    [
+        r'(.*)(offer|do|give)(.*)(scholarship|scholarships)(.*)',
+        [lambda matches: 'Unfortunately, we do not offer any scholarships at the American School of Warsaw.'],
+    ],
+     [
+        r'(.*)(space|availability|room)(.*)(students|kid|child|son|daughter|bieng)(.*)',
+        [lambda matches: 'Admission will be decided based on space availability and in line with the priority rules of the ASW admissions policy. You may view the admissions policy at https://www.aswarsaw.org/admissions/admissions-policy.'],
+    ],
+    [
+        r'(.*)(offer|have|do)(.*)(IB)(.*)',
+        [lambda matches: 'The IB Diploma Program at ASW welcomes all students in grades 11 and 12 to participate, either as a full IB Diploma student or taking part in individual Courses. The rewards of participation are high and we hope to see all of our students benefiting from such a well-regarded educational model.'],
+    ],
 
     # conversation stuff
     [
