@@ -198,11 +198,11 @@ if __name__ == "__main__":
         print("5) Deutsch") # german
         print("6) Français") # french
         print("7) English") # english
-        translate = input("Please choose the number by the language you would like.\n> ")
+        translate = input("Please choose the number by the language you would like.\n>")
         try:
             translate = int(translate)
         except ValueError:
-            translate = input("Please only type a number.\n> ")
+            translate = input("Please only type a number.\n>")
         else:
             if translate == 1:
                 language = "pl"
