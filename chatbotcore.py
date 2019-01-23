@@ -1,13 +1,14 @@
-
 from nltk.chat.util import Chat, reflections
 import re
 import random
+import requests
+import ast
 
 # === This is the extension code for the NLTK library ===
 #        === You dont have to understand it ===
 
 class ContextChat(Chat):
-    def respond(self, str):
+    def respond(self, str, language):
         # check each pattern
         for (pattern, response) in self._pairs:
             match = pattern.match(str)
@@ -24,6 +25,11 @@ class ContextChat(Chat):
                 # fix munged punctuation at the end
                 if resp[-2:] == '?.': resp = resp[:-2] + '.'
                 if resp[-2:] == '??': resp = resp[:-2] + '?'
+
+                payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': resp, 'lang':'en-'+language}
+                r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+                output = ast.literal_eval(r.text)
+                resp = output.get("text")[0]
                 return resp
 
     def _wildcards(self, response, match):
@@ -36,7 +42,7 @@ class ContextChat(Chat):
             pos = response.find('%')
         return response
 
-    def converse(self, quit="quit"):
+    def converse(self, language, quit="quit"):
         user_input = ""
         while user_input != quit:
             user_input = quit
@@ -44,8 +50,12 @@ class ContextChat(Chat):
             except EOFError:
                 print(user_input)
             if user_input:
+                payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': user_input, 'lang':language+'-en'}
+                r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+                output = ast.literal_eval(r.text)
+                user_input = output.get("text")[0]
                 while user_input[-1] in "!.": user_input = user_input[:-1]    
-                print(self.respond(user_input))
+                print(self.respond(user_input, language))
 
 # === Your code should go here ===
 
@@ -57,7 +67,6 @@ def add_to_list(item):
     If given item is already in the list it returns
     False, otherwise it returns True
     '''
-
     if item in shopping_list:
         return False
     else:
@@ -169,7 +178,7 @@ pairs = [
         [lambda matches: 'In order to contact the good people at the admissions office please email admissions@aswarsaw.org or call +48 22 702 8500.'],
     ],
 
-    # quit and error, they must be last!!
+    # quit and error, they must be last
     [
         r'(quit)',
         ["Goodbye."],
@@ -181,7 +190,55 @@ pairs = [
 ]
 
 if __name__ == "__main__":
-    print("Hi, I'm Admissions Bot. It's a pleasure to meet you.")
-    print("What can I help you with?")
+    while True:
+        print("1) Polski") # polish
+        print("2) 한국어") # korean
+        print("3) 中文") # chinese
+        print("4) Español") # spanish
+        print("5) Deutsch") # german
+        print("6) Français") # french
+        print("7) English") # english
+        translate = input("Please choose the number by the language you would like.\n> ")
+        try:
+            translate = int(translate)
+        except ValueError:
+            translate = input("Please only type a number.\n> ")
+        else:
+            if translate == 1:
+                language = "pl"
+                break
+            elif translate == 2:
+                language = "ko"
+                break
+            elif translate == 3:
+                language = "zh"
+                break
+            elif translate == 4:
+                language = "es"
+                break
+            elif translate == 5:
+                language = "de"
+                break
+            elif translate == 6:
+                language = "fr"
+                break
+            elif translate == 7:
+                language = "en"
+                break
+            else:
+                print("{} is not a number you can choose.".format(translate))
+    greeting = "Hi, I'm Admissions Bot. It's a pleasure to meet you."
+    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting, 'lang':'en-'+language}
+    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+    output = ast.literal_eval(r.text)
+    greeting = output.get("text")[0]
+    print(greeting)
+    greeting2 = "What can I help you with?"
+    greeting = "Hi, I'm Admissions Bot. It's a pleasure to meet you."
+    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting2, 'lang':'en-'+language}
+    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+    output = ast.literal_eval(r.text)
+    greeting2 = output.get("text")[0]
+    print(greeting2)
     chat = ContextChat(pairs, reflections)
-    chat.converse()
+    chat.converse(language)
