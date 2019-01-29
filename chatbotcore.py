@@ -243,14 +243,14 @@ if __name__ == "__main__":
                 break
             else:
                 print("{} is not a number you can choose.".format(translate))
-    greeting = "Hi, I'm Admissions Bot. It's a pleasure to meet you."
+    greeting = "Hi, I'm the ASW Admissions Bot. It's a pleasure to meet you."
     payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting, 'lang':'en-'+language}
     r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
     output = ast.literal_eval(r.text)
     greeting = output.get("text")[0]
     print(greeting)
     greeting2 = "What can I help you with?"
-    greeting = "Hi, I'm Admissions Bot. It's a pleasure to meet you."
+    greeting = "Hi, I'm the ASW Admissions Bot. It's a pleasure to meet you."
     payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting2, 'lang':'en-'+language}
     r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
     output = ast.literal_eval(r.text)
