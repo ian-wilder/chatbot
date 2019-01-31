@@ -156,7 +156,7 @@ pairs = [
         [lambda matches: 'The IB Diploma Program at ASW welcomes all students in grades 11 and 12 to participate, either as a full IB Diploma student or taking part in individual Courses. The rewards of participation are high and we hope to see all of our students benefiting from such a well-regarded educational model.'],
     ],
     [
-        r'(.*)(do)(.*)(full)(.*)(IB)(.*)',
+        r'(.*)(full)(.*)(IB)(.*)',
         [lambda matches: 'Although we encourage all students to consider the full IB Diploma and will support all students who wishes to pursue it, we recognize that the IBDP may not fit every student in all situations. All students at ASW graduate with a fully accredited high school diploma, giving them access to postsecondary schools worldwide. In addition, students may elect to take IBDP Courses, which may provide them certain advantages in university applications, college credit, or a combination thereof. Please speak with the IBDP Coordinator or the High School Counselors for guidance and further information.'],
     ],
     [
