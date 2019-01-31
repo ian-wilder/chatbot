@@ -155,6 +155,38 @@ pairs = [
         r'(.*)(offer|have|do)(.*)(IB)(.*)',
         [lambda matches: 'The IB Diploma Program at ASW welcomes all students in grades 11 and 12 to participate, either as a full IB Diploma student or taking part in individual Courses. The rewards of participation are high and we hope to see all of our students benefiting from such a well-regarded educational model.'],
     ],
+    [
+        r'(.*)(do)(.*)(full)(.*)(IB)(.*)',
+        [lambda matches: 'Although we encourage all students to consider the full IB Diploma and will support all students who wishes to pursue it, we recognize that the IBDP may not fit every student in all situations. All students at ASW graduate with a fully accredited high school diploma, giving them access to postsecondary schools worldwide. In addition, students may elect to take IBDP Courses, which may provide them certain advantages in university applications, college credit, or a combination thereof. Please speak with the IBDP Coordinator or the High School Counselors for guidance and further information.'],
+    ],
+    [
+        r'(.*)(how)(.*)(contact)(.*)(admissions|people)(.*)', 
+        [lambda matches: 'In order to contact the good people at the admissions office please email admissions@aswarsaw.org or call +48 22 702 8500.'],
+    ],
+    [
+        r'(.*)(need|required|require|needed)(.*)(apply)(.*)', 
+        [lambda matches: 'An application to the American School of Warsaw will be complete when we receive: Student’s Birth Certificate Copy, Student’s Passport Copy, Both Parent’s Passport Copies, 2 Years of School Records or Transcripts, Online Teacher Recommendations, In case of special needs full information and copies of relevant reports must be submitted, Completed Online Application Form, $750 USD Application Fee.'],
+    ],
+    [
+        r'(.*)(visit|tour)(.*)(school|asw)(.*)', 
+        [lambda matches: 'We encourage all future potential students and families the opportunity to meet with the ASW admissions team and tour our school and facilities. Middle School and High School tours are held on most Tuesdays, at 11 am while school is in progress. Elementary School tours are help on most Wednesdays, at 10 am while school is in progress. You can register for a tour by emailing the admission’s office at admissions@aswarsaw.org.'],
+    ],
+    [
+        r'(.*)(where|what)(.*)(policies|rules)(.*)', 
+        [lambda matches: 'For more information regarding our Upper School policies, please refer to our ASW Upper School Handbook at: https://resources.finalsite.net/images/v1536590120/warsaw/rgdqgo0gelreo7vp041o/ASW_handbook_upper_school_1.pdf.'],
+    ],
+    [
+        r'(.*)(have|does|offer)(.*)(Parent Teacher Orginization|PTO)(.*)', 
+        [lambda matches: 'The PTO provides support for ongoing activities of teachers in individual classrooms, grades, and all three of the school divisions that comprise ASW. All parents of students at the school and the ASW faculty make up the general membership of the PTO. For more information please visit the school website.'],
+    ],
+    [
+        r'(.*)(have|does|offer|provide|do)(.*)(learning support)(.*)', 
+        [lambda matches: 'The American School of Warsaw strives to set the highest standards of learning for each student at his or her own stage of development, within the context of the ASW curriculum. Understanding that all students learn, grow, and develop in different ways, following ASW’s Learning Support Process, the Learning Support Department provides support services for students who are struggling and students with identified mild to moderate learning needs. The goal is to assist students in reaching their highest potential academically, socially and emotionally.'],
+    ],
+    [
+        r'(.*)(what|how)(.*)(learning support)(.*)', 
+        [lambda matches: 'We believe that all students learn best when they are educated with typically developing peers, thus nurturing an atmosphere of tolerance and empathy. Students are initiated into the Learning Support Process by recognition of a difficulty with the Student Study Team (SST). The Student Study Team (SST) consists of learning support teachers, counsellors, subject teachers, the principal and vice-principal. Students are first supported through classroom strategies and consultation with teachers. When students require more support to be successful, they may receive additional aid by one of the professionals in the Learning Support Department. Assistance may be in the form of short term intervention, in-class support, evaluation and/or formal learning support services and classes. The Study Skills Class and the Learning Support Class may take the place of an elective class (grades 6 - 10) or an unsupervised Self-Directed study period (grades 10 - 12).'],
+    ],
 
     # conversation stuff
     [
@@ -189,10 +221,7 @@ pairs = [
         r'(.*)(how)(.*)(quit|exit|leave)(.*)', 
         [lambda matches: 'In order to quit simply type: quit.'],
     ],
-    [
-        r'(.*)(how)(.*)(contact)(.*)(admissions|people)(.*)', 
-        [lambda matches: 'In order to contact the good people at the admissions office please email admissions@aswarsaw.org or call +48 22 702 8500.'],
-    ],
+    
 
     # quit and error, they must be last
     [
