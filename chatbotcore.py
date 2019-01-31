@@ -85,7 +85,7 @@ pairs = [
     ],
     [
         r'(.*)(when)(.*)(school)(.*)(year)(.*)',
-        [lambda matches: 'The school year varies from year to year, but starts in late August, and goes through mid June. We do have a three week Christmas break, as well as several week long breaks throughout the year.'],
+        [lambda matches: "The school year varies from year to year, but starts in late August, and goes through mid June. We do have a three week Christmas break, as well as several week long breaks throughout the year. Is there anything else you'd like to know?"],
     ],
     [
         r'(.*)(how)(.*)(apply)(.*)',
@@ -101,7 +101,7 @@ pairs = [
     ],
     [
         r'(.*)(uniform)(.*)',
-        [lambda matches: 'At ASW students do not wear a school uniform but are required to dress appropriately for school. Middle and High School students have a Physical Education uniform.'],
+        [lambda matches: 'At ASW students do not wear a school uniform but are required to dress appropriately for school. Middle and High School students have a Physical Education uniform. Do you have any other questions for me?'],
     ],
     [
         r'(.*)(placement test)(.*)',
@@ -113,11 +113,11 @@ pairs = [
     ],
     [
         r'(.*)(boarding)(.*)',
-        [lambda matches: 'ASW does not offer boarding. Students enrolled at ASW must reside with their parents or a legal guardian.'],
+        [lambda matches: 'ASW does not offer boarding. Students enrolled at ASW must reside with their parents or a legal guardian. Is there anything else I can help you with?'],
     ],
     [
         r'(.*)(meals)(.*)',
-        [lambda matches: 'Fresh, healthy meals and snacks are offered in our cafeteria for a fee. Students may also bring their own lunch from home.'],
+        [lambda matches: 'Fresh, healthy meals and snacks are offered in our cafeteria for a fee. Students may also bring their own lunch from home. I can help you with any other questions you may have.'],
     ],
     [
         r'(.*)(how)(.*)(long)(.*)(day)(.*)',
