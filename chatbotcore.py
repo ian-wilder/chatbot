@@ -140,7 +140,7 @@ pairs = [
         [lambda matches: 'Each student’s record is considered carefully. Normally, students who have just completed a grade level (American system equivalent) in their home country will not be promoted to the next grade level mid-year at ASW as this would mean skipping months or even a full semester of that year’s work and leading to gaps in learning. Additionally, students who in future years return to an alternative calendar are often significantly impacted even more. Review of a student’s full record, relevant assessments, and other pertinent information may be used in making an alternative placement, if the body of evidence supports that decision after being reviewed by school administration.'],
     ],
         [
-        r'(.*)(withdrawel)(.*)',
+        r'(.*)(withdrawal)(.*)',
         [lambda matches: 'In order to withrdraw your child from the school send an e-mail to the admission’s office at admissions@aswarsaw.org notifying the name of the student(s) who is withdrawing, the last day of attendance, and the reason for withdrawal.']
     ],
     [
