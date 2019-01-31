@@ -187,6 +187,10 @@ pairs = [
         r'(.*)(what|how)(.*)(learning support)(.*)', 
         [lambda matches: 'We believe that all students learn best when they are educated with typically developing peers, thus nurturing an atmosphere of tolerance and empathy. Students are initiated into the Learning Support Process by recognition of a difficulty with the Student Study Team (SST). The Student Study Team (SST) consists of learning support teachers, counsellors, subject teachers, the principal and vice-principal. Students are first supported through classroom strategies and consultation with teachers. When students require more support to be successful, they may receive additional aid by one of the professionals in the Learning Support Department. Assistance may be in the form of short term intervention, in-class support, evaluation and/or formal learning support services and classes. The Study Skills Class and the Learning Support Class may take the place of an elective class (grades 6 - 10) or an unsupervised Self-Directed study period (grades 10 - 12).'],
     ],
+    [
+        r'(.*)(when)(.*)(break)(.*)', 
+        [lambda matches: 'You can find out more information including all our important dates on our American School of Warsaw calendar at: https://www.aswarsaw.org/about-us/calendar.'],
+    ],
 
     # conversation stuff
     [
