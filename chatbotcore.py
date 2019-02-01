@@ -54,12 +54,18 @@ class ContextChat(Chat):
                 r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
                 output = ast.literal_eval(r.text)
                 user_input = output.get("text")[0]
-                while user_input[-1] in "!.": user_input = user_input[:-1]    
+                while user_input[-1] in "!.": user_input = user_input[:-1]
+                already_asked = add_to_list(user_input)
+                if already_asked == 0:
+                    print("You don't remember? You asked this a little bit ago...")
+                elif already_asked == 1:
+                    print("You just asked this but...")
+                already_asked = 2
                 print(self.respond(user_input, language))
 
 # === Your code should go here ===
 
-shopping_list = []
+shopping_list = [""]
 
 def add_to_list(item):
     '''
@@ -67,11 +73,13 @@ def add_to_list(item):
     If given item is already in the list it returns
     False, otherwise it returns True
     '''
-    if item in shopping_list:
-        return False
+    if item == shopping_list[0]:
+        return 0
+    elif item in shopping_list:
+        return 1
     else:
         shopping_list.append(item)
-        return True
+        return 2
 
 pairs = [
     # answer to questions
