@@ -51,9 +51,9 @@ class ContextChat(Chat):
                 while user_input[-1] in "!.": user_input = user_input[:-1]
                 already_asked = add_to_list(user_input)
                 if already_asked == 0:
-                    print("You don't remember? You asked this a little bit ago...")
+                    print(translate_from_english("You don't remember? You asked this a little bit ago...", language))
                 elif already_asked == 1:
-                    print("You just asked this but...")
+                    print(translate_from_english("You just asked this but...", language))
                 already_asked = 2
                 print(self.respond(user_input, language))
 
