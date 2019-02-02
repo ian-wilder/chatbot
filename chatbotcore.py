@@ -26,10 +26,7 @@ class ContextChat(Chat):
                 if resp[-2:] == '?.': resp = resp[:-2] + '.'
                 if resp[-2:] == '??': resp = resp[:-2] + '?'
 
-                payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': resp, 'lang':'en-'+language}
-                r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
-                output = ast.literal_eval(r.text)
-                resp = output.get("text")[0]
+                resp = translate_from_english(resp, language)
                 return resp
 
     def _wildcards(self, response, match):
@@ -50,10 +47,7 @@ class ContextChat(Chat):
             except EOFError:
                 print(user_input)
             if user_input:
-                payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': user_input, 'lang':language+'-en'}
-                r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
-                output = ast.literal_eval(r.text)
-                user_input = output.get("text")[0]
+                user_input = translate_to_english(user_input, language)
                 while user_input[-1] in "!.": user_input = user_input[:-1]
                 already_asked = add_to_list(user_input)
                 if already_asked == 0:
@@ -64,6 +58,20 @@ class ContextChat(Chat):
                 print(self.respond(user_input, language))
 
 # === Your code should go here ===
+
+def translate_to_english(words, language):
+    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': words, 'lang':language+'-en'}
+    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+    output = ast.literal_eval(r.text)
+    output = output.get("text")[0]
+    return output
+
+def translate_from_english(words, language):
+    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': words, 'lang':'en-'+language}
+    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
+    output = ast.literal_eval(r.text)
+    output = output.get("text")[0]
+    return output
 
 shopping_list = [""]
 
@@ -284,18 +292,7 @@ if __name__ == "__main__":
                 break
             else:
                 print("{} is not a number you can choose.".format(translate))
-    greeting = "Hi, I'm the ASW Admissions Bot. It's a pleasure to meet you."
-    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting, 'lang':'en-'+language}
-    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
-    output = ast.literal_eval(r.text)
-    greeting = output.get("text")[0]
-    print(greeting)
-    greeting2 = "What can I help you with?"
-    greeting = "Hi, I'm the ASW Admissions Bot. It's a pleasure to meet you."
-    payload = {'key': 'trnsl.1.1.20190117T132741Z.eb29b4e0109365dc.2bbd22b38b491ee6da903085ed4e941c6ab051d0', 'text': greeting2, 'lang':'en-'+language}
-    r = requests.get('https://translate.yandex.net/api/v1.5/tr.json/translate', params=payload)
-    output = ast.literal_eval(r.text)
-    greeting2 = output.get("text")[0]
-    print(greeting2)
+    print(translate_from_english("Hi, I'm the ASW Admissions Bot. It's a pleasure to meet you.", language))
+    print(translate_from_english("What can I help you with?", language))
     chat = ContextChat(pairs, reflections)
     chat.converse(language)
